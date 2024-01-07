@@ -26,4 +26,6 @@ Here are the awesome tools we used:
 - [NYC Open Data - Zip Code Boundaries](https://data.beta.nyc/en/dataset/nyc-zip-code-tabulation-areas/resource/894e9162-871c-4552-a09c-c6915d8783fb)
 - [Weather Data](https://www.wunderground.com/)
 
+## Conclusions
+
 <!-- MARKDOWN LINKS AND IMAGES -->
