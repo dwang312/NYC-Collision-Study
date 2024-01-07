@@ -1,5 +1,6 @@
 <div align ="center">
   <h1>NYC Collision Study</h1>
+  <img src="https://cdn-images.the-express.com/img/dynamic/10/590x/secondary/NYC-crash-24494.jpg?r=1688426470795"/>
 </div>
  
 
@@ -25,4 +26,4 @@ Here are the awesome tools we used:
 - [NYC Open Data - Zip Code Boundaries](https://data.beta.nyc/en/dataset/nyc-zip-code-tabulation-areas/resource/894e9162-871c-4552-a09c-c6915d8783fb)
 - [Weather Data](https://www.wunderground.com/)
 
-
+<!-- MARKDOWN LINKS AND IMAGES -->
