@@ -26,7 +26,7 @@ def load_colision_data(fp):
     return(df)
 
 #loading the data
-fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+#fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 df = load_colision_data(fp)
 
 
