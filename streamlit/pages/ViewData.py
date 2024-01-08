@@ -14,7 +14,12 @@ def load_data(fp):
     return df
 
 #fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
-fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+#fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+
+fp = '../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv'
+
 df = load_data(fp)
 
-st.dataframe(df, width=725, height=400)
+df2019 = df[df['CRASH DATE'].dt.year == 2019]
+
+st.dataframe(df2019,width = 1400)
