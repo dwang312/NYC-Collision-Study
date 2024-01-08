@@ -13,6 +13,7 @@ show_pages(
     [
         Page("Home.py", "Home", ":house:"),
         Page("pages/About.py" , "About", ":wave:"),
+        Page("pages/ViewData.py", "View Data", ":eyes:"),
         Page("pages/CollisionVisualization.py", "Collision Visualization", ":bar_chart:"),
         Page("pages/MapVisualization.py", "Map Visualization", ":world_map:"),
     ]
