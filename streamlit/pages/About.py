@@ -10,7 +10,7 @@ st.set_page_config(
 st.write("# Welcome to (PROJECT NAME)")
 
 important_links = '''
-[Github Repository]()
+[Github Repository](https://github.com/dwang312/NYC-Collision-Study)
 
 [Linkedin](https://www.linkedin.com/in/david-wang-nyc/)
 '''

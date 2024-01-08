@@ -19,9 +19,9 @@ def load_data(zone,zip,collision):
 #zipcodeRaw = 'https://raw.githubusercontent.com/dwang312/NYC-Collision-Study/main/data/NYC-ZipCode-Geodata.geojson'
 #fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 
-zoningRaw = 'NYC-Collision-Study\data\NYC-ZoningDistrict-Geodata.json'
-zipcodeRaw = 'NYC-Collision-Study\data\NYC-ZipCode-Geodata.geojson'
-fp = 'NYC-Collision-Study\data\NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+zoningRaw = '../data/NYC-ZoningDistrict-Geodata.json'
+zipcodeRaw = '../data/NYC-ZipCode-Geodata.geojson'
+fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 
 mapInteractive = folium.Map(location=[40.71, -74.00], 
                       zoom_start=11, 

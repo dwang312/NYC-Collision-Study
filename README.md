@@ -30,7 +30,7 @@ All data can be found in the following cloud storage:
 - [NYC Planning - GIS Zoning Data](https://www.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page#metadata)
 - [NYC Open Data - Zip Code Boundaries](https://data.beta.nyc/en/dataset/nyc-zip-code-tabulation-areas/resource/894e9162-871c-4552-a09c-c6915d8783fb)
 - [Weather Data](https://www.wunderground.com/)
-- 
+
 ## Conclusions
 
 <!-- MARKDOWN LINKS AND IMAGES -->
