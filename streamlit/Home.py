@@ -21,9 +21,4 @@ show_pages(
 
 # Create a page header
 st.header(" 👋")
-
-# Columns
-col1 = st.columns([1])
-
-with col1:
-    st.markdown('<a href="/About">About</a>', unsafe_allow_html=True)
+st.markdown('<a href="/About">About</a>', unsafe_allow_html=True)
