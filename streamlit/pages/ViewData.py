@@ -30,9 +30,7 @@ def load_data(fp):
 
 #fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 #fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
-
 fp = '../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv'
-
 df = load_data(fp)
 
 year = st.selectbox('Select a year', 
