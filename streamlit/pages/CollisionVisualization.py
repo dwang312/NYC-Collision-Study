@@ -31,11 +31,10 @@ fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 df = load_colision_data(fp)
 
 def graph_years(interval):
-    startYear = interval[0]
-    endYear = interval[1]
-
+    startYear = pd.to_datetime(interval[0])
+    endYear = pd.to_datetime(interval[1])
     #filtering the data
-    df_filtered = df[(df['Collision Datetime'].dt.year >= startYear) & (df['Collision Datetime'].dt.year <= endYear)]
+    df_filtered = df[(df['Collision Datetime'] >= startYear) & (df['Collision Datetime'] <= endYear)]
 
     #grouping the data
     df_grouped = df_filtered.groupby([df_filtered['Collision Datetime'].dt.year.rename('Year'), df_filtered['Collision Datetime'].dt.month.rename('Month')]).size().reset_index(name='Counts')
@@ -51,7 +50,7 @@ def graph_years(interval):
                 color_discrete_sequence=px.colors.sequential.Viridis,
                 template="plotly_white").update_layout(
                     title={
-                        'text': 'Crashes by Month (' + str(startYear) + ' - ' + str(endYear) + ')',
+                        'text': 'Crashes by Month (' + startYear.strftime(' %b %Y')+ ' - ' + endYear.strftime('%b %Y') + ')',
                         'x': 0.5,  # Set x to 0.5 for center alignment
                         'xanchor': 'center',  # Set xanchor to center
                     },
@@ -91,11 +90,12 @@ def graph_years(interval):
     
     return fig
    
-colInterval = st.slider('Select the years to view',
-                        min_value = 2012, 
-                        max_value = 2023,  
-                        value = (2012,2023),
+dateInterval = st.slider('TEMP TEXT',
+                         min_value = dt.datetime(2012, 6, 1),
+                         max_value = dt.datetime(2023,11, 1),
+                         value = (dt.datetime(2012, 6, 1),dt.datetime(2023,12,1)),
+                            format = 'MMM YYYY',
                         )
 
-fig_years = graph_years(colInterval)
+fig_years = graph_years(dateInterval)
 st.plotly_chart(fig_years, theme = None, use_container_width=True)
