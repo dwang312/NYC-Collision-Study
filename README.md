@@ -31,6 +31,21 @@ All data can be found in the following cloud storage:
 - [NYC Open Data - Zip Code Boundaries](https://data.beta.nyc/en/dataset/nyc-zip-code-tabulation-areas/resource/894e9162-871c-4552-a09c-c6915d8783fb)
 - [Weather Data](https://www.wunderground.com/)
 
+## Running the Streamlit App Locally
+
+Open a terminal and run:
+```bash
+$ pip install streamlit
+$ streamlit hello
+```
+
+```bash
+$ git clone https://github.com/dwang312/NYC-Collision-Study.git
+$ cd NYC-Collision-Study/streamlit
+$ streamlit run Home.py
+
+```
+
 ## Conclusions
 
 <!-- MARKDOWN LINKS AND IMAGES -->
