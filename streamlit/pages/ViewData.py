@@ -33,6 +33,7 @@ def load_data(fp):
 fp = '../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv'
 df = load_data(fp)
 
+#Dropdown menu to select year
 year = st.selectbox('Select a year', 
                     options = [2012,2013,2014,2015,
                             2016,2017,2018,2019,
@@ -41,6 +42,10 @@ year = st.selectbox('Select a year',
 
 def select_year(df,year):
     df = df[df['Collision Datetime'].dt.year == year]
+
+    #Removes an entry that has a zipcode entry with decimal
+    df['ZIP CODE'] = df['ZIP CODE'].astype(str).str.split('.').str[0]
+
     return df
 
 selected_df = select_year(df,year)

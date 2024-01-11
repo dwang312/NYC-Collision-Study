@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 from st_pages import Page, show_pages, add_page_title
 
+#Can be standarize
+#https://medium.com/analytics-vidhya/how-to-write-configuration-files-in-your-machine-learning-project-47bc840acc19
+
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
