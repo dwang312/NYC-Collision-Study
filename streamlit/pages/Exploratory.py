@@ -6,6 +6,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
+
+st.set_page_config(layout="wide")
+
+@st.cache_data
+
 def load_data(fp):
     df = pd.read_csv(fp, low_memory=False)
     return df
@@ -15,8 +20,34 @@ crashesRaw = "../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv"
 peopleRaw = "../data/Motor_Vehicle_Collisions_-_Person_20231202.csv"
 vehiclesRaw = "../data/Motor_Vehicle_Collisions_-_Vehicles_20231202.csv"
 
-def top_states(df):
-    stateRegistered = pd.DataFrame(df['STATE_REGISTRATION' ].value_counts()).reset_index()
+def contributing_factor():
+    df_collisions = load_data(crashesRaw)
+    #create a new data frame containing vehicle 1 type accident cause and the the number of accidents caused
+    df_NYaccidentcause=pd.DataFrame(df_collisions['CONTRIBUTING FACTOR VEHICLE 1'].value_counts()) 
+    top10accidentcauses=pd.Series(df_NYaccidentcause.head(10).index)
+    top10C=df_collisions[df_collisions['CONTRIBUTING FACTOR VEHICLE 1'].isin(top10accidentcauses)]
+
+    topCFactors=pd.DataFrame(top10C.groupby(['BOROUGH','CONTRIBUTING FACTOR VEHICLE 1']).size(), columns=['count'])
+    topCFactors.reset_index(inplace=True)
+    topCFactors=topCFactors.pivot(index='BOROUGH',columns='CONTRIBUTING FACTOR VEHICLE 1',values='count')
+
+    #drop the unspecified entry
+    topCFactors.drop(['Unspecified'],axis=1,inplace=True)
+
+    fig, axes = plt.subplots(1,1,figsize=(13,8))
+    ax = topCFactors.plot(ax=axes,kind='bar', stacked=True)
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=0, horizontalalignment='right', ha='center')
+
+    ax.set_xlabel('Borough', weight ='bold')
+    ax.set_ylabel('Number of Accidents', weight ='bold')
+    ax.set_title('Top 9 Accident Causes by Borough (July 2012 - Present)', weight='bold', fontsize=16)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1))
+
+    return fig
+
+def top_states():
+    df_vehicle = load_data(vehiclesRaw)
+    stateRegistered = pd.DataFrame(df_vehicle['STATE_REGISTRATION' ].value_counts()).reset_index()
     c1 = stateRegistered['STATE_REGISTRATION'] != 'NY'
     stateList = stateRegistered[c1]
     fig = plt.figure(figsize=(34,21))
@@ -90,14 +121,15 @@ option = st.selectbox('Select exploratory question:',[q for q in questions.keys(
 
 if questions[option] == 1:
     logging.info("Plotting contributing factor")
+    fig = contributing_factor()
+    st.pyplot(fig)
 elif questions[option] == 2:
     logging.info("Plotting vehicle type distribution")
 elif questions[option] == 3:
     logging.info("Plotting borough distribution")
 elif questions[option] == 4:
     logging.info("Plotting top states")
-    df_vehicle = load_data(vehiclesRaw)
-    fig, table = top_states(df_vehicle)
+    fig, table = top_states()
     st.pyplot(fig)
     st.markdown(table.to_markdown())
 elif questions[option] == 5:

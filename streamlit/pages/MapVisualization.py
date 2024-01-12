@@ -6,6 +6,8 @@ import streamlit as st
 from streamlit_folium import st_folium
 #https://folium.streamlit.app/
 
+st.set_page_config(layout="wide")
+
 @st.cache_data
 def load_data(zone,zoneID,zip,collision):
     #read the data
