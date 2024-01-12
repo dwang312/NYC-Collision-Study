@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 def load_colision_data(fp):
     #read in the csv via the link
-    df = pd.read_csv(fp)
+    df = pd.read_csv(fp,low_memory=False)
 
     #convert the collumns to datetime
     df['CRASH DATE'] = pd.to_datetime(df['CRASH DATE'] + ' ' + df['CRASH TIME'])

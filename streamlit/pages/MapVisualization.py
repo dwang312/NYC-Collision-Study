@@ -9,9 +9,9 @@ from streamlit_folium import st_folium
 @st.cache_data
 def load_data(zone,zoneID,zip,collision):
     #read the data
-    df = pd.read_csv(collision)
+    df = pd.read_csv(collision, low_memory=False)
     zoneData = gpd.read_file(zone)
-    zoneID = pd.read_csv(zoneID)
+    zoneID = pd.read_csv(zoneID, low_memory=False)
     zipData = gpd.read_file(zip)
 
     return zoneData, zoneID, zipData, df
