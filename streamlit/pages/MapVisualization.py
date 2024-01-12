@@ -92,11 +92,6 @@ def load_zoning(mapInteractive,zone, zoningID):
                   line_opacity=0.3
                   ).add_to(mapInteractive)
 
-
-#zoningRaw = 'https://raw.githubusercontent.com/dwang312/NYC-Collision-Study/main/data/NYC-ZoningDistrict-Geodata.json'
-#zipcodeRaw = 'https://raw.githubusercontent.com/dwang312/NYC-Collision-Study/main/data/NYC-ZipCode-Geodata.geojson'
-#fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
-
 zoningRaw = '../data/NYC-ZoningDistrict-Geodata.json'
 zoningIDRaw = '../data/NYC-ZoningIDs.csv'
 zipcodeRaw = '../data/NYC-ZipCode-Geodata.geojson'

@@ -31,11 +31,8 @@ def load_data(fp):
 
     return df
 
-#fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
-#fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 fp = '../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv'
 df = load_data(fp)
-
 
 def select_year(df,year):
     df = df[df['Collision Datetime'].dt.year == year]
@@ -52,6 +49,7 @@ year = st.selectbox('Select a year',
                     )
 
 selected_df = select_year(df,year)
+
 startDate = selected_df['Collision Datetime'].min().strftime('%B %d, %Y at %H:%M EST')
 endDate = selected_df['Collision Datetime'].max().strftime('%B %d, %Y at %H:%M EST')
 

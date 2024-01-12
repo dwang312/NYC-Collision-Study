@@ -119,6 +119,7 @@ questions = {
 
 option = st.selectbox('Select exploratory question:',[q for q in questions.keys()])
 
+col1, col2 = st.columns([1,4])
 if questions[option] == 1:
     logging.info("Plotting contributing factor")
     fig = contributing_factor()
@@ -134,6 +135,9 @@ elif questions[option] == 4:
     st.markdown(table.to_markdown())
 elif questions[option] == 5:
     logging.info("Plotting Florida")
-    fig = florida_roadways()
-    st.pyplot(fig)
+    with col1:
+        st.write("Temp")
+    with col2:
+        fig = florida_roadways()
+        st.pyplot(fig)
 
