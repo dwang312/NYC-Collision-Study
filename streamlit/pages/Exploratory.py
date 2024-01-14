@@ -111,10 +111,8 @@ def florida_roadways():
 #exploratory questions
 questions = {
     'What is the distribution of crashes by contributing factor?' : 1,
-    'What is the distribution of crashes by vehicle type?' : 2,
-    'What is the distribution of crashes by borough?' : 3,
-    'Which out of state vehicles are involved in the most crashes?': 4,
-    'Where are Flordian vehicles involved in the most crashes?': 5,
+    'Which out of state vehicles are involved in the most crashes?': 2,
+    'Where are Flordian vehicles involved in the most crashes?': 3,
 }
 
 option = st.selectbox('Select exploratory question:',[q for q in questions.keys()])
@@ -125,15 +123,11 @@ if questions[option] == 1:
     fig = contributing_factor()
     st.pyplot(fig)
 elif questions[option] == 2:
-    logging.info("Plotting vehicle type distribution")
-elif questions[option] == 3:
-    logging.info("Plotting borough distribution")
-elif questions[option] == 4:
     logging.info("Plotting top states")
     fig, table = top_states()
     st.pyplot(fig)
     st.markdown(table.to_markdown())
-elif questions[option] == 5:
+elif questions[option] == 3:
     logging.info("Plotting Florida")
     with col1:
         st.write("Temp")
