@@ -24,6 +24,7 @@ show_pages(
         Page("pages/ViewData.py", "View Data", ":eyes:"),
         Page("pages/CollisionVisualization.py", "Collision Visualization", ":bar_chart:"),
         Page("pages/MapVisualization.py", "Map Visualization", ":world_map:"),
+        Page("pages/Model.py", "Model", ":bar_chart:"),
     ]
 )
 
