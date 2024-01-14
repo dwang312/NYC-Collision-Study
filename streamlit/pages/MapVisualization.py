@@ -6,12 +6,14 @@ import streamlit as st
 from streamlit_folium import st_folium
 #https://folium.streamlit.app/
 
+st.set_page_config(layout="wide")
+
 @st.cache_data
 def load_data(zone,zoneID,zip,collision):
     #read the data
-    df = pd.read_csv(collision)
+    df = pd.read_csv(collision, low_memory=False)
     zoneData = gpd.read_file(zone)
-    zoneID = pd.read_csv(zoneID)
+    zoneID = pd.read_csv(zoneID, low_memory=False)
     zipData = gpd.read_file(zip)
 
     return zoneData, zoneID, zipData, df
@@ -89,11 +91,6 @@ def load_zoning(mapInteractive,zone, zoningID):
                   fill_opacity=0.7,
                   line_opacity=0.3
                   ).add_to(mapInteractive)
-
-
-#zoningRaw = 'https://raw.githubusercontent.com/dwang312/NYC-Collision-Study/main/data/NYC-ZoningDistrict-Geodata.json'
-#zipcodeRaw = 'https://raw.githubusercontent.com/dwang312/NYC-Collision-Study/main/data/NYC-ZipCode-Geodata.geojson'
-#fp = 'https://media.githubusercontent.com/media/dwang312/NYC-Collision-Study/main/data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
 
 zoningRaw = '../data/NYC-ZoningDistrict-Geodata.json'
 zoningIDRaw = '../data/NYC-ZoningIDs.csv'

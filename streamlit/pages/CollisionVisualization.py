@@ -1,13 +1,6 @@
 import streamlit as st
-
 import pandas as pd
-import numpy as np
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
-
-import json
 import datetime as dt
 import calendar
 
@@ -17,7 +10,7 @@ st.set_page_config(layout="wide")
 
 def load_colision_data(fp):
     #read in the csv via the link
-    df = pd.read_csv(fp)
+    df = pd.read_csv(fp,low_memory=False)
 
     #convert the collumns to datetime
     df['CRASH DATE'] = pd.to_datetime(df['CRASH DATE'] + ' ' + df['CRASH TIME'])
