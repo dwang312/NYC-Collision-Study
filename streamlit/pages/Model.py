@@ -11,125 +11,37 @@ def get_prediction_data(time,borough,reason)->list:
 
     if time == 'Morning (05:00 - 12:00)':
         morning = 1
-        afternoon = 0
-        evening = 0
-        night = 0
     elif time == 'Afternoon (12:00 - 17:00)':
-        morning = 0
         afternoon = 1
-        evening = 0
-        night = 0
     elif time == 'Evening (17:00 - 21:00)':
-        morning = 0
-        afternoon = 0
         evening = 1
-        night = 0
-    elif time == 'Night (21:00 - 05:00)': 
-        morning = 0
-        afternoon = 0
-        evening = 0
+    elif time == 'Night (21:00 - 05:00)':
         night = 1
     elif borough == 'Bronx':
         bronx = 1
-        brooklyn = 0
-        manhattan = 0
-        queens = 0
-        staten_island = 0
     elif borough == 'Brooklyn':
-        bronx = 0
         brooklyn = 1
-        manhattan = 0
-        queens = 0
-        staten_island = 0
     elif borough == 'Manhattan':
-        bronx = 0
-        brooklyn = 0
         manhattan = 1
-        queens = 0
-        staten_island = 0
     elif borough == 'Queens':
-        bronx = 0
-        brooklyn = 0
-        manhattan = 0
         queens = 1
-        staten_island = 0
     elif borough == 'Staten Island':
-        bronx = 0
-        brooklyn = 0
-        manhattan = 0
-        queens = 0
         staten_island = 1
     elif reason == 'DUI':
         dui = 1
-        driver_negligence = 0
-        oversized_vehicle = 0
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
-        unspecified = 0
-        vehicle_failure = 0
-        vehicle_vandalism = 0
     elif reason == 'Driver Negligence':
-        dui = 0
         driver_negligence = 1
-        oversized_vehicle = 0
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
-        unspecified = 0
-        vehicle_failure = 0
-        vehicle_vandalism = 0
     elif reason == 'Oversized Vehicle':
-        dui = 0
-        driver_negligence = 0
         oversized_vehicle = 1
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
-        unspecified = 0
-        vehicle_failure = 0
-        vehicle_vandalism = 0
     elif reason == 'Pedestrian Error':
-        dui = 0
-        driver_negligence = 0
-        oversized_vehicle = 0
         pedestrian_error = 1
-        unsafe_driving_conditions = 0
-        unspecified = 0
-        vehicle_failure = 0
-        vehicle_vandalism = 0
-    elif reason == 'Unsafe Driving Condtions':
-        dui = 0
-        driver_negligence = 0
-        oversized_vehicle = 0
-        pedestrian_error = 0
+    elif reason == 'Unsafe Driving Conditions':
         unsafe_driving_conditions = 1
-        unspecified = 0
-        vehicle_failure = 0
-        vehicle_vandalism = 0
     elif reason == 'Unspecified':
-        dui = 0
-        driver_negligence = 0
-        oversized_vehicle = 0
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
         unspecified = 1
-        vehicle_failure = 0
-        vehicle_vandalism = 0
     elif reason == 'Vehicle Failure':
-        dui = 0
-        driver_negligence = 0
-        oversized_vehicle = 0
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
-        unspecified = 0
         vehicle_failure = 1
-        vehicle_vandalism = 0
     elif reason == 'Vehicle Vandalism':
-        dui = 0
-        driver_negligence = 0
-        oversized_vehicle = 0
-        pedestrian_error = 0
-        unsafe_driving_conditions = 0
-        unspecified = 0
-        vehicle_failure = 0
         vehicle_vandalism = 1
     
     return [afternoon, evening, morning, night, 
@@ -137,7 +49,7 @@ def get_prediction_data(time,borough,reason)->list:
             dui, driver_negligence, oversized_vehicle, pedestrian_error, 
             unsafe_driving_conditions, 
             unspecified, vehicle_failure, vehicle_vandalism]
-
+    
 #load the model
 model = load('../model/randomUnderSamplerModel.joblib')
 
@@ -164,6 +76,13 @@ if make_prediction:
     prediction_proba = model.predict_proba([to_predict])
 
     #debugging help
-    print(prediction_proba)
-
-    value = prediction [0]
+    print(prediction_proba) #[0,1]
+    value = prediction[0]
+    print(prediction)
+    
+    noInjury = prediction_proba[0][0]
+    injury = prediction_proba[0][1]
+    if value:
+        st.write('There is a **{}%** chance that this collision will result in an injury'.format(round(injury*100,2)))
+    else:
+        st.write('There is a **{}%** chance that this collision will not result in an injury'.format(round(noInjury*100,2)))
