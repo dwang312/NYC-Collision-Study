@@ -37,9 +37,6 @@ Open a terminal and run:
 ```bash
 $ pip install streamlit
 $ streamlit hello
-```
-
-```bash
 $ git clone https://github.com/dwang312/NYC-Collision-Study.git
 $ cd NYC-Collision-Study/streamlit
 $ streamlit run Home.py
