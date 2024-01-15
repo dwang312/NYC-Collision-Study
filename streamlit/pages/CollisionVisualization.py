@@ -4,6 +4,10 @@ import plotly.express as px
 import datetime as dt
 import calendar
 
+from Home import load_config
+
+config = load_config()
+
 st.set_page_config(layout="wide")
 
 @st.cache_data
@@ -20,7 +24,8 @@ def load_colision_data(fp):
     return(df)
 
 #loading the data
-fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+#fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+fp = config['paths']['collision_zones_weather']
 df = load_colision_data(fp)
 
 def graph_years(interval):

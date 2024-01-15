@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
+from Home import load_config
+
+config = load_config()
 
 st.set_page_config(layout="wide")
 
@@ -16,9 +19,9 @@ def load_data(fp):
     return df
 
 #Data File Paths
-crashesRaw = "../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv"
-peopleRaw = "../data/Motor_Vehicle_Collisions_-_Person_20231202.csv"
-vehiclesRaw = "../data/Motor_Vehicle_Collisions_-_Vehicles_20231202.csv"
+crashesRaw = config['paths']['crashesRaw']
+peopleRaw = config['paths']['peopleRaw']
+vehiclesRaw = config['paths']['vehiclesRaw']
 
 def contributing_factor():
     df_collisions = load_data(crashesRaw)

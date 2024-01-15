@@ -6,6 +6,10 @@ import streamlit as st
 from streamlit_folium import st_folium
 #https://folium.streamlit.app/
 
+from Home import load_config
+
+config = load_config()
+
 st.set_page_config(layout="wide")
 
 @st.cache_data
@@ -92,10 +96,11 @@ def load_zoning(mapInteractive,zone, zoningID):
                   line_opacity=0.3
                   ).add_to(mapInteractive)
 
-zoningRaw = '../data/NYC-ZoningDistrict-Geodata.json'
-zoningIDRaw = '../data/NYC-ZoningIDs.csv'
-zipcodeRaw = '../data/NYC-ZipCode-Geodata.geojson'
-fp = '../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv'
+#Load Data
+zoningRaw = config['paths']['zoning_raw']
+zoningIDRaw = config['paths']['zoning_id_raw']
+zipcodeRaw = config['paths']['zipcode_raw']
+fp = config['paths']['collision_zones_weather']
 
 base = st.selectbox('Select a base map provider',["OpenStreetMap", "CartoDB Positron", "CartoBD Voyager", "NASAGIBS Blue Marble"])
 

@@ -1,0 +1,13 @@
+# config.yaml
+
+paths:
+  zoning_raw: "../data/NYC-ZoningDistrict-Geodata.json"
+  zoning_id_raw: "../data/NYC-ZoningIDs.csv"
+  zipcode_raw: "../data/NYC-ZipCode-Geodata.geojson"
+  collision_zones_weather: "../data/NYC-CollisionZonesWeather-Jun2012-Dec2023.csv"
+  crashes_raw: "../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv"
+  people_raw: "../data/Motor_Vehicle_Collisions_-_Person_20231202.csv"
+  vehicles_raw: "../data/Motor_Vehicle_Collisions_-_Vehicles_20231202.csv"
+
+model:
+  rf_us: "../model/randomUnderSamplerModel.joblib"

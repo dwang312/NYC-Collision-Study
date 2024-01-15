@@ -2,6 +2,10 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 
+from Home import load_config
+
+config = load_config()
+
 st.set_page_config(layout="wide")
 
 @st.cache_data
@@ -31,7 +35,7 @@ def load_data(fp):
 
     return df
 
-fp = '../data/Motor_Vehicle_Collisions_-_Crashes_20231202.csv'
+fp = config['paths']['crashesRaw']
 df = load_data(fp)
 
 def select_year(df,year):
