@@ -52,42 +52,28 @@ def load_ziplayer(mapInteractive,df,zipcodes):
                                     'fillOpacity': 0.50, 
                                     'weight': 0.1}
 
-    zip_gb = folium.features.GeoJson(
-        geo_zipdf,
-        style_function=style_function, 
-        control=False,
-        highlight_function=highlight_function, 
-        tooltip=folium.features.GeoJsonTooltip(
-            fields=['ZIP CODE', 'Percentage Per Borough'],
-            aliases=['Zip Code', 'Percentage Per Borough '],
-            style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
-        )
-    )
-    
     # zip_gb = folium.features.GeoJson(
-    #     zipcodes,
+    #     geo_zipdf,
     #     style_function=style_function, 
     #     control=False,
     #     highlight_function=highlight_function, 
+    #     tooltip=folium.features.GeoJsonTooltip(
+    #         fields=['ZIP CODE', 'Percentage Per Borough'],
+    #         aliases=['Zip Code', 'Percentage Per Borough '],
+    #         style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
+    #     )
     # )
+    
+    zip_gb = folium.features.GeoJson(
+        zipcodes,
+        style_function=style_function, 
+        control=False,
+        highlight_function=highlight_function, 
+    )
 
     mapInteractive.add_child(zip_gb)
 
 def load_zoning(mapInteractive,zone,zoningID):
-
-    def filterDist(dist):
-        #If has a residential designation:
-        if "R" in dist:
-            return 0
-        #If it's not residential but has a commercial designation:
-        elif "C" in dist:
-            return 10
-        else:  #everything else, most likely manufacturing
-            return 20
-        
-    #Apply the filter to our dataframe to create a new column:
-    zoningID['District Type'] = zoningID['Zoning District'].apply(filterDist)
-
     zone = folium.features.GeoJson(
         zone,
         style_function=lambda x: {'color':'#000000', 
@@ -113,15 +99,21 @@ zoningIDRaw = config['paths']['zoning_id_raw']
 zipcodeRaw = config['paths']['zipcode_raw']
 fp = config['paths']['collision_zones_weather']
 
-base = st.selectbox('Select a base map provider',["OpenStreetMap", "CartoDB Positron", "CartoBD Voyager", "NASAGIBS Blue Marble"])
+base = st.selectbox('Select a base map provider',["OpenStreetMap", "CartoDB Positron", "CartoBD Voyager"])
 
 mapInteractive = folium.Map(location=[40.71, -74.00], 
                       zoom_start=11, 
                       tiles = base)
 
 zone, zoningID, zipcodes, df = load_data(zoningRaw,zoningIDRaw,zipcodeRaw,fp)
-#load_ziplayer(mapInteractive,df,zipcodes)
-load_zoning(mapInteractive,zone,zoningID)
+option = st.radio('Select a layer to display',["None","Zoning", "Zipcode"])
+
+if option == "None":
+    pass
+elif option == "Zoning":
+    load_zoning(mapInteractive,zone,zoningID)
+elif option == "Zipcode":
+    load_ziplayer(mapInteractive,df,zipcodes)
 
 folium.LayerControl().add_to(mapInteractive) 
 
