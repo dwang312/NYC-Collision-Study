@@ -8,9 +8,10 @@ from streamlit_folium import st_folium
 
 from Home import load_config
 
+st.set_page_config(layout="wide")
+
 config = load_config()
 
-st.set_page_config(layout="wide")
 
 @st.cache_data
 def load_data(zone,zoneID,zip,collision):
