@@ -41,13 +41,14 @@ show_pages(
     ]
 )
 
-st.markdown('''
+
+col1,col2,col3 = st.columns([1,5,1])
+with col2:
+    st.markdown('''
             <div align ="center">
                 <h1>NYC Motor Vehicle Collision Study</h1>
             </div>
             ''', unsafe_allow_html=True)
-col1,col2,col3 = st.columns([1,5,1])
-with col2:
     st.image('images/bk_collision.png')
     st.markdown('''<div align ="center">
                     <a href="/About">Click to Learn More</a>
