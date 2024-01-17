@@ -19,9 +19,9 @@ def load_data(fp):
     return df
 
 #Data File Paths
-crashesRaw = config['paths']['crashesRaw']
-peopleRaw = config['paths']['peopleRaw']
-vehiclesRaw = config['paths']['vehiclesRaw']
+crashesRaw = config['paths']['crashes_raw']
+peopleRaw = config['paths']['people_raw']
+vehiclesRaw = config['paths']['vehicles_raw']
 
 def contributing_factor():
     df_collisions = load_data(crashesRaw)

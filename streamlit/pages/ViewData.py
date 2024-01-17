@@ -2,7 +2,12 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 
+import os
+
 from Home import load_config
+
+#TO BE REMOVED. CAN LOOK INTO USING A .ENV FILE
+#load_dotenv()
 
 config = load_config()
 
@@ -35,7 +40,8 @@ def load_data(fp):
 
     return df
 
-fp = config['paths']['crashesRaw']
+fp = config['paths']['crashes_raw']
+#fp = os.getenv('crashes_raw')
 df = load_data(fp)
 
 def select_year(df,year):
