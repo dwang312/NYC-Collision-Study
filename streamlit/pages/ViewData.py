@@ -4,6 +4,7 @@ from pathlib import Path
 
 from Home import load_config
 
+
 config = load_config()
 
 st.set_page_config(layout="wide")
@@ -35,7 +36,7 @@ def load_data(fp):
 
     return df
 
-fp = config['paths']['crashesRaw']
+fp = config['paths']['crashes_raw']
 df = load_data(fp)
 
 def select_year(df,year):

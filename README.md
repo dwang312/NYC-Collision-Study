@@ -5,6 +5,8 @@
  
 
 <!-- ABOUT THE PROJECT -->
+## Motivation for the Study
+As a born and rasied New Yorker, I've always taken mass transportation and knew very little about motor vehicles. Motor vehicles play a huge role in to day to day life. From transporting people to places to transporting goods across the city and country. Considering the importance of motor vehicles, and discovering that this data was available through [NYC Open Data](https://opendata.cityofnewyork.us/), we are offer a oppurtunity to gain insight into the factors and patterns of collision that occurs on the NYC roads.
 
 ## Built With
 
@@ -33,14 +35,21 @@ All data can be found in the following cloud storage:
 
 ## Running the Streamlit App Locally
 
-Open a terminal and run:
+Clone the project
 ```bash
-$ pip install streamlit
-$ streamlit hello
 $ git clone https://github.com/dwang312/NYC-Collision-Study.git
+```
+
+Install package dependencies
+```bash
+$ cd NYC-Collision-Study/
+$ pip install -r requirements.txt
+```
+
+Start the Streamlit Project
+```bash
 $ cd NYC-Collision-Study/streamlit
 $ streamlit run Home.py
-
 ```
 
 ## Conclusions
