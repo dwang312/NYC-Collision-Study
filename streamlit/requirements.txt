@@ -38,7 +38,6 @@ GitPython==3.1.41
 h11==0.14.0
 idna==3.6
 importlib-metadata==6.11.0
-ipython==8.20.0
 ipywidgets==8.1.1
 isoduration==20.11.0
 jedi==0.19.1
