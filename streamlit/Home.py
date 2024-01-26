@@ -6,13 +6,12 @@ from st_pages import Page, Section, show_pages, add_page_title
 import yaml
 import os
 
-
 def load_config():
     # Get the path to the YAML file (located in the root directory)
     config_file_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))),'config.yaml')
 
     # Print the full path for debugging
-    print("Full path to config.yaml:", config_file_path)
+    #print("Full path to config.yaml:", config_file_path)
 
     # Load configuration from file
     with open(config_file_path, 'r') as config_file:
@@ -20,19 +19,13 @@ def load_config():
     
     return config
 
-
-#Can be standarize
-#https://medium.com/analytics-vidhya/how-to-write-configuration-files-in-your-machine-learning-project-47bc840acc19
-
 st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
+    layout="wide",
+    page_title="NYC MV Collision Study",
+    page_icon="🚗",
 )
 
 load_config()
-
-# Create a page header
-add_page_title()
 
 #https://discuss.streamlit.io/t/new-package-st-pages-change-page-names-and-icons-in-sidebar-without-changing-filenames/33969
 show_pages(
@@ -48,4 +41,16 @@ show_pages(
     ]
 )
 
-st.markdown('<a href="/About">About</a>', unsafe_allow_html=True)
+
+col1,col2,col3 = st.columns([1,5,1])
+with col2:
+    st.markdown('''
+            <div align ="center">
+                <h1>NYC Motor Vehicle Collision Study</h1>
+            </div>
+            ''', unsafe_allow_html=True)
+    st.image('images/bk_collision.png')
+    st.markdown('''<div align ="center">
+                    <a href="/About">Click to Learn More</a>
+                </div>
+            ''', unsafe_allow_html=True)

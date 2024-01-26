@@ -5,9 +5,9 @@ from pathlib import Path
 from Home import load_config
 
 
-config = load_config()
-
 st.set_page_config(layout="wide")
+
+config = load_config()
 
 @st.cache_data
 
