@@ -6,7 +6,7 @@ from st_pages import Page, Section, show_pages, add_page_title
 import yaml
 import os
 
-""" def load_config():
+def load_config():
     # Get the path to the YAML file (located in the root directory)
     config_file_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))),'config.yaml')
 
@@ -17,7 +17,7 @@ import os
     with open(config_file_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
     
-    return config """
+    return config
 
 st.set_page_config(
     layout="wide",
