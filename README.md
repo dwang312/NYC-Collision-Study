@@ -54,4 +54,45 @@ $ streamlit run Home.py
 
 ## Conclusions
 
+## Project Structure
+```bash
+├── Jupyter Notebooks
+│   ├── WeatherScraping.ipynb
+│   └── data-wrangling
+│       ├── collisions_join_weather.ipynb
+│       └── collisions_join_zone.ipynb
+├── README.md
+├── config.yaml
+├── data
+│   ├── Motor_Vehicle_Collisions_-_Crashes_20231202.csv
+│   ├── Motor_Vehicle_Collisions_-_Person_20231202.csv
+│   ├── Motor_Vehicle_Collisions_-_Vehicles_20231202.csv
+│   ├── NYC-CollisionZonesWeather-Jun2012-Dec2023.csv
+│   ├── NYC-Weather-Jan2012-Nov2023.csv
+│   ├── NYC-ZipCode-Geodata.geojson
+│   ├── NYC-ZoningDistrict-Geodata.json
+│   └── NYC-ZoningIDs.csv
+├── docs
+│   ├── Research Presentation (Fall 2023).pdf
+│   └── Research Report (Fall 2023).pdf
+├── model
+│   └── randomUnderSamplerModel.joblib
+├── requirements.txt
+└── streamlit
+    ├── Home.py
+    ├── __init__.py
+    ├── __pycache__
+    │   └── Home.cpython-312.pyc
+    ├── images
+    │   └── bk_collision.png
+    └── pages
+        ├── About.py
+        ├── CollisionVisualization.py
+        ├── Exploratory.py
+        ├── MapVisualization.py
+        ├── Model.py
+        ├── ViewData.py
+        └── __init__.py
+```
+
 <!-- MARKDOWN LINKS AND IMAGES -->
