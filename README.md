@@ -54,6 +54,12 @@ $ streamlit run Home.py
 
 ## Conclusions
 
+## Full Project Report
+
+For a detailed analysis, findings, and in-depth exploration, please refer to our full project [report](https://github.com/dwang312/NYC-Collision-Study/blob/main/docs/Research%20Report%20(Fall%202023).pdf).
+
+
+
 ## Project Structure
 ```bash
 ├── Jupyter Notebooks
