@@ -93,12 +93,23 @@ def load_zoning(mapInteractive,zone,zoningID):
     )
     mapInteractive.add_child(zone)
 
+def load_trucking(mapInteractive, truck_routes):
+    truck_routes = gpd.read_file(truck_routes)
+    print("Accessing Truck Routes")
+    truck_routes_shape = folium.features.GeoJson(
+        truck_routes,
+    )
+    mapInteractive.add_child(truck_routes_shape)
+
+
+
 
 #Load Data
 zoningRaw = config['paths']['zoning_raw']
 zoningIDRaw = config['paths']['zoning_id_raw']
 zipcodeRaw = config['paths']['zipcode_raw']
 fp = config['paths']['collision_zones_weather']
+truck_routes = config['paths']['truck_routes']
 
 base = st.selectbox('Select a base map provider',["OpenStreetMap", "CartoDB Positron", "CartoBD Voyager"])
 
@@ -107,7 +118,7 @@ mapInteractive = folium.Map(location=[40.71, -74.00],
                       tiles = base)
 
 zone, zoningID, zipcodes, df = load_data(zoningRaw,zoningIDRaw,zipcodeRaw,fp)
-option = st.radio('Select a layer to display',["None","Zoning", "Zipcode"])
+option = st.radio('Select a layer to display',["None","Zoning", "Zipcode","Truck Routes"])
 
 if option == "None":
     pass
@@ -115,6 +126,8 @@ elif option == "Zoning":
     load_zoning(mapInteractive,zone,zoningID)
 elif option == "Zipcode":
     load_ziplayer(mapInteractive,df,zipcodes)
+elif option == "Truck Routes":
+    load_trucking(mapInteractive,truck_routes)
 
 folium.LayerControl().add_to(mapInteractive) 
 
