@@ -33,6 +33,10 @@ All data can be found in the following cloud storage:
 - [NYC Open Data - Zip Code Boundaries](https://data.beta.nyc/en/dataset/nyc-zip-code-tabulation-areas/resource/894e9162-871c-4552-a09c-c6915d8783fb)
 - [Weather Data](https://www.wunderground.com/)
 
+## Deployment
+
+The project is deployed online via Hugging Face's Spaces platform. You can access the deployed project at the following link: [NYC Collisions on Hugging Face Spaces](<https://huggingface.co/spaces/Asaiko/nyc-collisions>)
+
 ## Running the Streamlit App Locally
 
 Clone the project
@@ -70,6 +74,8 @@ For a detailed analysis, findings, and in-depth exploration, please refer to our
 ├── README.md
 ├── config.yaml
 ├── data
+│   ├── Bus_Lanes_-_Local_Streets_20240205.csv
+│   ├── Bus_Lanes_-_Local_Streets_20240205.sync-conflict-20240206-223355-Q4VNPYT.csv
 │   ├── Motor_Vehicle_Collisions_-_Crashes_20231202.csv
 │   ├── Motor_Vehicle_Collisions_-_Person_20231202.csv
 │   ├── Motor_Vehicle_Collisions_-_Vehicles_20231202.csv
@@ -77,7 +83,9 @@ For a detailed analysis, findings, and in-depth exploration, please refer to our
 │   ├── NYC-Weather-Jan2012-Nov2023.csv
 │   ├── NYC-ZipCode-Geodata.geojson
 │   ├── NYC-ZoningDistrict-Geodata.json
-│   └── NYC-ZoningIDs.csv
+│   ├── NYC-ZoningIDs.csv
+│   ├── New York City Truck Routes_20240204.geojson
+│   └── New York City Truck Routes_20240204.sync-conflict-20240206-223356-Q4VNPYT.geojson
 ├── docs
 │   ├── Research Presentation (Fall 2023).pdf
 │   └── Research Report (Fall 2023).pdf
@@ -88,7 +96,8 @@ For a detailed analysis, findings, and in-depth exploration, please refer to our
     ├── Home.py
     ├── __init__.py
     ├── __pycache__
-    │   └── Home.cpython-312.pyc
+    │   ├── Home.cpython-312.pyc
+    │   └── Home.cpython-39.pyc
     ├── images
     │   └── bk_collision.png
     └── pages
