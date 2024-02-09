@@ -75,7 +75,6 @@ For a detailed analysis, findings, and in-depth exploration, please refer to our
 ├── config.yaml
 ├── data
 │   ├── Bus_Lanes_-_Local_Streets_20240205.csv
-│   ├── Bus_Lanes_-_Local_Streets_20240205.sync-conflict-20240206-223355-Q4VNPYT.csv
 │   ├── Motor_Vehicle_Collisions_-_Crashes_20231202.csv
 │   ├── Motor_Vehicle_Collisions_-_Person_20231202.csv
 │   ├── Motor_Vehicle_Collisions_-_Vehicles_20231202.csv
@@ -85,7 +84,6 @@ For a detailed analysis, findings, and in-depth exploration, please refer to our
 │   ├── NYC-ZoningDistrict-Geodata.json
 │   ├── NYC-ZoningIDs.csv
 │   ├── New York City Truck Routes_20240204.geojson
-│   └── New York City Truck Routes_20240204.sync-conflict-20240206-223356-Q4VNPYT.geojson
 ├── docs
 │   ├── Research Presentation (Fall 2023).pdf
 │   └── Research Report (Fall 2023).pdf
